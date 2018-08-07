@@ -1,0 +1,50 @@
+1. 配置git ssh key
+	在本地创建ssh key
+	$ ssh-keygen -t rsa "mail@mail.com"
+	复制.ssh文件夹中的xxx.pub中的key
+	进入github中的账户设置(Account Settings)中的SSH keys，在页面添加key	
+	测试key是否添加成功
+	$ssh -T git@github.com
+2. 配置和github关联的用户名和email
+	####在github中注册的用户名
+	$ git config --global user.name "your name"
+	####在github中注册使用的邮箱
+	$ git config --global user.email "your_email@youremail.com"
+3. 在本地建立一个仓库并将之与github上的仓库关联
+3.1 必须先在github中建立一个仓库XXX
+3.2.1 自己建立本地仓库（工作目录）
+	#### 建立本地仓库（工作目录）
+	$ mkdir xxxx
+	$ cd xxxx
+	$ git init
+	#### 将当前本地仓库（工作目录）xxxx和远程github仓库xxx关联
+	#### 实质是在本地仓库的配置文件当中添加远程地址（.git/config文件中)
+	$ git remote add origin git@github.com:yourName/yourRepo.git
+3.2.2 或者直接从github中clone仓库xxx
+	#### git clone username@host:/path/to/repository
+	#### 从仓库xxx中检出
+	$ git clone username@github.com:username/xxx.git
+4. 工作流
+	git设计上总共有四个个区域
+	1.工作目录——实质持有文件
+	2.暂存区——Index——临时保存你的改动
+	3.HEAD——指向最后一次提交的结果
+	4.git-repo——git仓库
+	流程1：
+	git add file / git add *	### 改动保存到了暂存区
+	
+	流程2：
+	git commit -m “提交信息”	### 改动提交到了HEAD
+	
+	流程3
+	git push origin master		### 推送到仓库（远程仓库）
+	
+	
+
+
+
+
+
+
+
+
